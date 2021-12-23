@@ -1,4 +1,4 @@
-def JENA_VERSION='3.12.0'
+def JENA_VERSION='4.3.2'
 def DATASET_FILES='dataset/*'
 def TDB_LOCATION='run/databases/dataset'
 
@@ -39,7 +39,7 @@ task download() {
     }
     def binDir = new File("bin")
     binDir.mkdirs()
-    for (f in ['tdbloader2', 'tdbloader2common', 'tdbloader2data', 'tdbloader2index']) {
+    for (f in ['tdb1.xloader', 'xload-common', 'xload-main', 'xload-data', 'xload-index']) {
       exec {
         executable "sh"
         args "-c", "curl --silent https://raw.githubusercontent.com/apache/jena/jena-$JENA_VERSION/apache-jena/bin/$f > bin/$f"
@@ -47,7 +47,7 @@ task download() {
     }
     exec {
       executable "sh"
-      args "-c", "chmod +x bin/tdbloader2*"
+      args "-c", "chmod +x bin/*xload*"
     }
   }
 }
@@ -57,7 +57,7 @@ task tdbload() {
   doLast {
     exec{
       executable "sh"
-      args "-c", "bin/tdbloader2 --loc $TDB_LOCATION $DATASET_FILES"
+      args "-c", "bin/tdb1.xloader --loc $TDB_LOCATION $DATASET_FILES"
     }
   }
 }

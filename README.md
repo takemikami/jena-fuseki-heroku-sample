@@ -59,7 +59,7 @@ https://jp.heroku.com/
 
 ```
 gradle clean stage
-java -jar jar/jena-fuseki-fulljar-3.12.0.jar
+java -jar jar/jena-fuseki-fulljar-4.3.2.jar
 ```
 
 ## ディレクトリ構成
