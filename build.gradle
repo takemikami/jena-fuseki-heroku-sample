@@ -1,4 +1,4 @@
-def JENA_VERSION='4.3.2'
+def JENA_VERSION='4.5.0'
 def DATASET_FILES='dataset/*'
 def TDB_LOCATION='run/databases/dataset'
 
@@ -8,7 +8,7 @@ configurations {
 }
 
 repositories {
-  jcenter()
+  mavenCentral()
 }
 dependencies {
   jenaServer "org.apache.jena:jena-fuseki-fulljar:$JENA_VERSION"
